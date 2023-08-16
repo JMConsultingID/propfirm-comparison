@@ -64,6 +64,16 @@ register_deactivation_hook( __FILE__, 'deactivate_propfirm_comparison' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-propfirm-comparison.php';
 
+function filter_action_propfirm_comparison_links( $links ) {
+     $links['settings'] = '<a href="#">' . __( 'Settings', 'propfirm-comparison' ) . '</a>';
+     $links['support'] = '<a href="#">' . __( 'Doc', 'propfirm-comparison' ) . '</a>';
+     // if( class_exists( 'Fyfx_Payment' ) ) {
+     //  $links['upgrade'] = '<a href="https://fundyourfx.com">' . __( 'Upgrade', 'propfirm-comparison' ) . '</a>';
+     // }
+     return $links;
+}
+add_filter( 'plugin_action_links_propfirm_comparison/propfirm-comparison.php', 'filter_action_propfirm_comparison_links', 10, 1 );
+
 /**
  * Begins execution of the plugin.
  *
