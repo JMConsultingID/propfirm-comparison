@@ -10,7 +10,7 @@ function create_propfirm_post_type() {
             'public' => true,
             'has_archive' => true,
             'supports' => array('title', 'editor', 'thumbnail'),
-            'menu_icon' => 'dashicons-building',
+            'menu_icon' => 'dashicons-screenoptions',
         )
     );
 }
