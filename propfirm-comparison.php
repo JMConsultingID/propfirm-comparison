@@ -63,6 +63,7 @@ register_deactivation_hook( __FILE__, 'deactivate_propfirm_comparison' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-propfirm-comparison.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-propfirm-comparison-functions.php';
 
 function filter_action_propfirm_comparison_links( $links ) {
      $links['settings'] = '<a href="#">' . __( 'Settings', 'propfirm-comparison' ) . '</a>';
@@ -72,7 +73,7 @@ function filter_action_propfirm_comparison_links( $links ) {
      // }
      return $links;
 }
-add_filter( 'plugin_action_links_propfirm_comparison/propfirm-comparison.php', 'filter_action_propfirm_comparison_links', 10, 1 );
+add_filter( 'plugin_action_links_propfirm-comparison/propfirm-comparison.php', 'filter_action_propfirm_comparison_links', 10, 1 );
 
 /**
  * Begins execution of the plugin.
