@@ -37,6 +37,10 @@
         const fixedButton = document.getElementById('fixed-button'); // Get the fixed button element
         const clearSessionButton = document.getElementById('clear-session');
 
+        // Dapatkan nilai selectedIds dari atribut data di elemen HTML
+        const selectedIdsElement = document.getElementById('selected-ids');
+        const selectedIds = JSON.parse(selectedIdsElement.getAttribute('data-ids'));
+
         function updateCompareList() {
             compareList.innerHTML = '';
             selectedIds.forEach(id => {
