@@ -76,3 +76,42 @@ function your_prefix_register_meta_boxes( $meta_boxes ) {
 
     return $meta_boxes;
 }
+
+// Add to compare session
+function add_to_compare_session() {
+    $propfirm_id = isset($_POST['propfirm_id']) ? intval($_POST['propfirm_id']) : 0;
+    if ($propfirm_id > 0) {
+        session_start();
+        if (!isset($_SESSION['compare_list'])) {
+            $_SESSION['compare_list'] = array();
+        }
+        if (!in_array($propfirm_id, $_SESSION['compare_list'])) {
+            $_SESSION['compare_list'][] = $propfirm_id;
+        }
+        wp_send_json_success();
+    } else {
+        wp_send_json_error();
+    }
+}
+add_action('wp_ajax_add_to_compare', 'add_to_compare_session');
+add_action('wp_ajax_nopriv_add_to_compare', 'add_to_compare_session');
+
+// Remove from compare session
+function remove_from_compare_session() {
+    $propfirm_id = isset($_POST['propfirm_id']) ? intval($_POST['propfirm_id']) : 0;
+    if ($propfirm_id > 0) {
+        session_start();
+        if (isset($_SESSION['compare_list'])) {
+            $index = array_search($propfirm_id, $_SESSION['compare_list']);
+            if ($index !== false) {
+                unset($_SESSION['compare_list'][$index]);
+                $_SESSION['compare_list'] = array_values($_SESSION['compare_list']);
+            }
+        }
+        wp_send_json_success();
+    } else {
+        wp_send_json_error();
+    }
+}
+add_action('wp_ajax_remove_from_compare', 'remove_from_compare_session');
+add_action('wp_ajax_nopriv_remove_from_compare', 'remove_from_compare_session');
