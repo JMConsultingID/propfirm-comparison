@@ -1,4 +1,9 @@
 <?php
+if ( function_exists( 'wp_session_start' ) ) {
+    wp_session_start();
+}
+session_start(); 
+
 // Create Post Type Propfirm
 function create_propfirm_post_type() {
     register_post_type('propfirm',
