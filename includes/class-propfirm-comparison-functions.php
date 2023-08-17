@@ -120,3 +120,11 @@ function remove_from_compare_session() {
 }
 add_action('wp_ajax_remove_from_compare', 'remove_from_compare_session');
 add_action('wp_ajax_nopriv_remove_from_compare', 'remove_from_compare_session');
+
+function clear_session() {
+    session_start();
+    $_SESSION = array(); // Clear session data
+    wp_send_json_success();
+}
+add_action('wp_ajax_clear_session', 'clear_session');
+add_action('wp_ajax_nopriv_clear_session', 'clear_session');
