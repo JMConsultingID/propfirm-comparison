@@ -5,12 +5,12 @@
 .fixed-button {
     position: fixed;
     cursor: pointer;
-    width: auto;
+    width: auto!important;
     height: 40px;
     top: 50%;
     right: 0px;
-    text-align: center;
+    text-align: center!important;
     color: #fff;
-    border-radius: 0px;
-    border: none;
+    border-radius: 0px!important;
+    border: none!important;
 }
