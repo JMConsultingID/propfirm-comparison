@@ -29,7 +29,6 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 	document.addEventListener('DOMContentLoaded', function() {
-    	var compareListData = <?php echo json_encode($_SESSION['compare_list'] ?? []); ?>;
         const compareButtons = document.querySelectorAll('.compare-button');
         const compareList = document.getElementById('compare-list');
         const generateCompareButton = document.getElementById('generate-compare');
@@ -39,10 +38,6 @@
 
         // Check if the session variable exists and is an array
         let selectedIds = <?php echo isset($_SESSION['compare_list']) && is_array($_SESSION['compare_list']) ? json_encode($_SESSION['compare_list']) : '[]'; ?>;
-
-        console.log('selectedIds:', compareListData);
-        const indexsc = selectedIds.indexOf(400);
-		console.log('Index of PropFirm ID in selectedIds:', indexsc);
 
         function updateCompareList() {
             compareList.innerHTML = '';
