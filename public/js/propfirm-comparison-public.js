@@ -169,7 +169,9 @@
             }).then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // Reload the page after clearing session
+                    selectedIds = []; // Clear selectedIds array
+                    localStorage.removeItem('compare_list'); // Clear local storage
+                    updateCompareList(); // Update the displayed list
                     location.reload();
                 } else {
                     console.error('Error clearing session.');
