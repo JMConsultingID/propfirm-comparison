@@ -42,22 +42,32 @@
         const selectedIds = JSON.parse(localStorage.getItem('compare_list')) || [];
 
         function updateCompareList() {
-            compareList.innerHTML = '';
+            compareList.innerHTML = ''; // Clear the previous content
+
             selectedIds.forEach(id => {
-                const propfirmButton = document.querySelector(`.compare-button[data-propfirm-id="${id}"]`);
-                const listItem = document.createElement('div');
-                listItem.classList.add('col-6', 'mb-2');
-                listItem.innerHTML = `
-                	<div class="card w-100">
-					  <img src="${propfirmButton.getAttribute('data-image-url')}" class="card-img-top" alt="${propfirmButton.getAttribute('data-propfirm-title')}">
-					  <div class="card-body">
-                        <div class="d-grid gap-2">
-					    <button class="remove-compare btn btn-danger" data-propfirm-id="${id}">Remove</button>
-					    </div>
-                      </div>
-					</div>
-                `;
-                compareList.appendChild(listItem);
+                // Fetch data from the server based on the ID
+                fetch(ajaxUrl, {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        action: 'get_propfirm_data', // Adjust the action to your actual server-side handler
+                        propfirm_id: id,
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Create and append the card
+                    const listItem = document.createElement('div');
+                    listItem.classList.add('card', 'w-100');
+                    listItem.innerHTML = `
+                        <img src="${data.post_thumbnail_url}" class="card-img-top" alt="${data.post_title}">
+                        <div class="card-body">
+                            <div class="d-grid gap-2">
+                                <button class="remove-compare btn btn-danger" data-propfirm-id="${data.post_id}">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                    compareList.appendChild(listItem);
+                });
             });
 
             // Disable compare buttons for selected items
@@ -68,7 +78,7 @@
 
             // Enable/Disable generateCompareButton based on compare_list length
             generateCompareButton.disabled = selectedIds.length === 0;
-            
+
             // Store updated data in local storage
             localStorage.setItem('compare_list', JSON.stringify(selectedIds));
 

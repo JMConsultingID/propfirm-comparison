@@ -150,3 +150,25 @@ function update_compare_session() {
 }
 add_action('wp_ajax_update_compare_session', 'update_compare_session');
 add_action('wp_ajax_nopriv_update_compare_session', 'update_compare_session');
+
+function get_propfirm_data() {
+    $propfirm_id = isset($_POST['propfirm_id']) ? intval($_POST['propfirm_id']) : 0;
+
+    if ($propfirm_id > 0) {
+        $post = get_post($propfirm_id);
+        if ($post && $post->post_type === 'propfirm') {
+            $propfirm_data = array(
+                'post_title' => $post->post_title,
+                'post_thumbnail_url' => get_the_post_thumbnail_url($propfirm_id),
+                'post_id' => $propfirm_id,
+            );
+
+            wp_send_json($propfirm_data);
+        }
+    }
+
+    wp_send_json(array()); // Return an empty JSON object if no data found
+}
+// Add AJAX action to fetch propfirm data
+add_action('wp_ajax_get_propfirm_data', 'get_propfirm_data');
+add_action('wp_ajax_nopriv_get_propfirm_data', 'get_propfirm_data'); // For non-logged in users
