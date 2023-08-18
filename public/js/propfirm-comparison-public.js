@@ -169,7 +169,6 @@
             }).then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    selectedIds = []; // Clear selectedIds array
                     localStorage.removeItem('compare_list'); // Clear local storage
                     updateCompareList(); // Update the displayed list
                     location.reload();
