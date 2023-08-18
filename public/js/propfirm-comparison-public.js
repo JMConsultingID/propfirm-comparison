@@ -39,7 +39,7 @@
 
         // Dapatkan nilai selectedIds dari atribut data di elemen HTML
         const selectedIdsElement = document.getElementById('selected-ids');
-        const selectedIds = JSON.parse(selectedIdsElement.getAttribute('data-ids'));
+        const selectedIds = JSON.parse(localStorage.getItem('compare_list')) || [];
 
         function updateCompareList() {
             compareList.innerHTML = '';
@@ -68,6 +68,9 @@
 
             // Enable/Disable generateCompareButton based on compare_list length
             generateCompareButton.disabled = selectedIds.length === 0;
+            
+            // Store updated data in local storage
+            localStorage.setItem('compare_list', JSON.stringify(selectedIds));
 
             // Update fixed button text with total item count
             fixedButton.innerHTML = `<i class="fa-solid fa-code-compare"></i> (${selectedIds.length})`;
