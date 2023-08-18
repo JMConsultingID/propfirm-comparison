@@ -2,7 +2,21 @@
 if ( function_exists( 'wp_session_start' ) ) {
     wp_session_start();
 }
-session_start(); 
+session_start();
+
+// Add plugin settings page
+function propfirm_comparison_settings_page() {
+    add_submenu_page(
+        'propfirm',
+        'Settings Propfirm Comparasion',
+        'Settings Propfirm Comparasion',
+        'manage_options',
+        'propfirm_comparison',
+        'propfirm_comparison_settings_page_content'
+    );
+}
+add_action('admin_menu', 'propfirm_comparison_settings_page');
+
 
 // Create Post Type Propfirm
 function create_propfirm_post_type() {
