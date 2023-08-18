@@ -62,20 +62,20 @@ function propfirm_comparison_general_section_callback() {
 // Field callback
 function propfirm_comparison_url_field_callback() {
     $options = get_option('propfirm_comparison_settings');
-    $selected_url = isset($options['propfirm_comparison_url']) ? esc_url($options['propfirm_comparison_url']) : '';
+    $selected_slug = isset($options['propfirm_comparison_url']) ? sanitize_text_field($options['propfirm_comparison_url']) : '';
 
     // Get all pages
     $pages = get_pages();
 
     echo '<select name="propfirm_comparison_settings[propfirm_comparison_url]">';
     echo '<option value="">Select a Page</option>';
-    
+
     foreach ($pages as $page) {
-        $page_url = get_slug($page->ID);
-        $selected = $page_url === $selected_url ? 'selected' : '';
-        echo "<option value='$page_url' $selected>{$page->post_title}</option>";
+        $page_slug = $page->post_name;
+        $selected = $page_slug === $selected_slug ? 'selected' : '';
+        echo "<option value='$page_slug' $selected>{$page->post_title}</option>";
     }
-    
+
     echo '</select>';
 }
 
