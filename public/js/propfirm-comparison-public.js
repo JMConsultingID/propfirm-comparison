@@ -70,9 +70,7 @@
             generateCompareButton.disabled = selectedIds.length === 0;
 
             // Update fixed button text with total item count
-            fixedButton = document.createElement('i');
-            fixedButton.classList.add('bi', 'bi-files');
-            fixedButton.textContent = `(${selectedIds.length})`;
+            fixedButton.innerHTML = `<i class="bi bi-files"></i> (${selectedIds.length})`;
         }
 
         function updateSession() {
