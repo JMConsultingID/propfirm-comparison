@@ -81,3 +81,72 @@ function your_prefix_register_meta_boxes( $meta_boxes ) {
 
     return $meta_boxes;
 }
+
+// Add to compare session
+function add_to_compare_session() {
+    $propfirm_id = isset($_POST['propfirm_id']) ? intval($_POST['propfirm_id']) : 0;
+    if ($propfirm_id > 0) {
+        session_start();
+        if (!isset($_SESSION['compare_list'])) {
+            $_SESSION['compare_list'] = array();
+        }
+        if (!in_array($propfirm_id, $_SESSION['compare_list'])) {
+            $_SESSION['compare_list'][] = $propfirm_id;
+        }
+        wp_send_json_success();
+    } else {
+        wp_send_json_error();
+    }
+}
+add_action('wp_ajax_add_to_compare', 'add_to_compare_session');
+add_action('wp_ajax_nopriv_add_to_compare', 'add_to_compare_session');
+
+// Remove from compare session
+function remove_from_compare_session() {
+    $propfirm_id = isset($_POST['propfirm_id']) ? intval($_POST['propfirm_id']) : 0;
+    if ($propfirm_id > 0) {
+        session_start();
+        if (isset($_SESSION['compare_list'])) {
+            $index = array_search($propfirm_id, $_SESSION['compare_list']);
+            if ($index !== false) {
+                unset($_SESSION['compare_list'][$index]);
+                $_SESSION['compare_list'] = array_values($_SESSION['compare_list']);
+            }
+        }
+        wp_send_json_success();
+        
+    } else {
+        wp_send_json_error();
+    }
+}
+add_action('wp_ajax_remove_from_compare', 'remove_from_compare_session');
+add_action('wp_ajax_nopriv_remove_from_compare', 'remove_from_compare_session');
+
+function clear_session() {
+    session_start();
+    $_SESSION = array(); // Clear session data
+    wp_send_json_success();
+}
+add_action('wp_ajax_clear_session', 'clear_session');
+add_action('wp_ajax_nopriv_clear_session', 'clear_session');
+
+function get_compare_list() {
+    session_start();
+    $compare_list = isset($_SESSION['compare_list']) ? $_SESSION['compare_list'] : array();
+    wp_send_json_success(array('compare_list' => $compare_list));
+}
+add_action('wp_ajax_get_compare_list', 'get_compare_list');
+add_action('wp_ajax_nopriv_get_compare_list', 'get_compare_list');
+
+// Update compare session
+function update_compare_session() {
+    if (isset($_POST['compare_list']) && is_array($_POST['compare_list'])) {
+        session_start();
+        $_SESSION['compare_list'] = $_POST['compare_list'];
+        wp_send_json_success();
+    } else {
+        wp_send_json_error();
+    }
+}
+add_action('wp_ajax_update_compare_session', 'update_compare_session');
+add_action('wp_ajax_nopriv_update_compare_session', 'update_compare_session');
