@@ -7,7 +7,7 @@ session_start();
 // Add plugin settings page
 function propfirm_comparison_settings_page() {
     add_submenu_page(
-        'propfirm',
+        'edit.php?post_type=propfirm',
         'Settings Propfirm Comparasion',
         'Settings Propfirm Comparasion',
         'manage_options',
@@ -16,6 +16,56 @@ function propfirm_comparison_settings_page() {
     );
 }
 add_action('admin_menu', 'propfirm_comparison_settings_page');
+
+// Create settings page content
+function propfirm_comparison_settings_page_content() {
+    ?>
+    <div class="wrap">
+        <h2>Settings Propfirm Comparison</h2>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields('propfirm_comparison_settings');
+            do_settings_sections('propfirm_comparison');
+            submit_button();
+            ?>
+        </form>
+    </div>
+    <?php
+}
+
+// Register settings and fields
+function propfirm_comparison_register_settings() {
+    register_setting('propfirm_comparison_settings', 'propfirm_comparison_settings');
+
+    add_settings_section(
+        'propfirm_comparison_general',
+        'General Settings',
+        'propfirm_comparison_general_section_callback',
+        'propfirm_comparison'
+    );
+
+    add_settings_field(
+        'propfirm_comparison_url',
+        'Propfirm Comparison URL',
+        'propfirm_comparison_url_field_callback',
+        'propfirm_comparison',
+        'propfirm_comparison_general'
+    );
+}
+add_action('admin_init', 'propfirm_comparison_register_settings');
+
+// Section callback
+function propfirm_comparison_general_section_callback() {
+    echo 'General settings for Propfirm Comparison';
+}
+
+// Field callback
+function propfirm_comparison_url_field_callback() {
+    $options = get_option('propfirm_comparison_settings');
+    $url = isset($options['propfirm_comparison_url']) ? esc_url($options['propfirm_comparison_url']) : '';
+    echo "<input type='text' name='propfirm_comparison_settings[propfirm_comparison_url]' value='$url' />";
+}
+
 
 
 // Create Post Type Propfirm
