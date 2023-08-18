@@ -123,8 +123,7 @@ class Elementor_PropfirmComparison_Widget_listPropfirm extends \Elementor\Widget
 				    echo "No PropFirm data found.";
 				endif;
 			?>
-		</div>
-		<button id="fixed-button" class="fixed-button btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-files"></i> (0)</button>
+		</div>		
 		<?php
 	}
 }
