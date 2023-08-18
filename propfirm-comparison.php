@@ -64,6 +64,7 @@ register_deactivation_hook( __FILE__, 'deactivate_propfirm_comparison' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-propfirm-comparison.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-propfirm-comparison-functions.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-propfirm-comparison-elementor.php';
 
 function filter_action_propfirm_comparison_links( $links ) {
      $links['settings'] = '<a href="#">' . __( 'Settings', 'propfirm-comparison' ) . '</a>';
