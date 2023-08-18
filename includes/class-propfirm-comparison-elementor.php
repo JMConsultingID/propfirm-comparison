@@ -60,7 +60,11 @@ function add_offcanvas_comparasion_to_footer() {
         <div id="compare-list" class="row"></div>
         <ul></ul>
         <div class="d-grid gap-2">
-        <button id="generate-compare" class="btn btn-success">Generate Compare</button>
+        <?php
+            $options = get_option('propfirm_comparison_settings');
+            $page_url = isset($options['propfirm_comparison_url']) ? esc_url($options['propfirm_comparison_url']) : '';
+        ?>
+        <button id="generate-compare" class="btn btn-success" data-propfirm-url="<?php echo esc_url($page_url); ?>">Generate Compare</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas" aria-label="Close">Close</button>    
         </div>
         </div>
