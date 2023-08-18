@@ -39,7 +39,7 @@
 
         // Dapatkan nilai selectedIds dari atribut data di elemen HTML
         const selectedIdsElement = document.getElementById('selected-ids');
-        const selectedIds = JSON.parse(localStorage.getItem('compare_list')) || [];
+        const selectedIds = JSON.parse(selectedIdsElement.getAttribute('data-ids'));
 
         function updateCompareList() {
             compareList.innerHTML = '';
