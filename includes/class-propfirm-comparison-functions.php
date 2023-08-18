@@ -71,7 +71,7 @@ function propfirm_comparison_url_field_callback() {
     echo '<option value="">Select a Page</option>';
     
     foreach ($pages as $page) {
-        $page_url = get_permalink($page->ID);
+        $page_url = get_slug($page->ID);
         $selected = $page_url === $selected_url ? 'selected' : '';
         echo "<option value='$page_url' $selected>{$page->post_title}</option>";
     }
