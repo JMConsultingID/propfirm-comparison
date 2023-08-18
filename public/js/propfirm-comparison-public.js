@@ -51,8 +51,10 @@
                 	<div class="card w-100">
 					  <img src="${propfirmButton.getAttribute('data-image-url')}" class="card-img-top" alt="${propfirmButton.getAttribute('data-propfirm-title')}">
 					  <div class="card-body">
-					    <button class="remove-compare btn btn-lg btn-danger" data-propfirm-id="${id}">Remove</button>
-					  </div>
+                        <div class="d-grid gap-2">
+					    <button class="remove-compare btn btn-danger" data-propfirm-id="${id}">Remove</button>
+					    </div>
+                      </div>
 					</div>
                 `;
                 compareList.appendChild(listItem);
