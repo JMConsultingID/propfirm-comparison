@@ -47,7 +47,7 @@ function register_propfirm_comparison_widget( $widgets_manager ) {
 }
 add_action( 'elementor/widgets/register', 'register_propfirm_comparison_widget' );
 
-function add_custom_script_to_footer() {
+function add_offcanvas_comparasion_to_footer() {
     ?>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header pt-3">
@@ -69,4 +69,4 @@ function add_custom_script_to_footer() {
     <?php
 }
 
-add_action('wp_footer', 'add_custom_script_to_footer', 999);
+add_action('wp_footer', 'add_offcanvas_comparasion_to_footer';
