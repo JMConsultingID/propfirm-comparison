@@ -69,4 +69,4 @@ function add_offcanvas_comparasion_to_footer() {
     <?php
 }
 
-add_action('wp_footer', 'add_offcanvas_comparasion_to_footer';
+add_action('wp_footer', 'add_offcanvas_comparasion_to_footer');
