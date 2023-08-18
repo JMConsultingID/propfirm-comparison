@@ -14,3 +14,8 @@
     border-radius: 0px!important;
     border: none!important;
 }
+
+@media only screen and (max-width: 480px) {
+.offcanvas {
+    max-width: 60%!important;
+}
