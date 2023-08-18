@@ -83,7 +83,7 @@
             localStorage.setItem('compare_list', JSON.stringify(selectedIds));
 
             // Update fixed button text with total item count
-            fixedButton.innerHTML = `<i class="fa-solid fa-code-compare"></i> (${selectedIds.length})`;
+            fixedButton.innerHTML = `<i class="fa-solid fa-code-compare"></i> ${selectedIds.length}`;
         }
 
         function updateSession() {

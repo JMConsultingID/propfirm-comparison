@@ -70,7 +70,7 @@ function add_offcanvas_comparasion_to_footer() {
         </div>
       </div>
     </div>
-    <button id="fixed-button" class="fixed-button btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-files"></i> (0)</button>
+    <button id="fixed-button" class="fixed-button btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-files"></i> 0</button>
     <?php
 }
 
