@@ -46,3 +46,27 @@ function register_propfirm_comparison_widget( $widgets_manager ) {
     $widgets_manager->register( new \Elementor_PropfirmComparison_Widget_listPropfirm() );
 }
 add_action( 'elementor/widgets/register', 'register_propfirm_comparison_widget' );
+
+function add_custom_script_to_footer() {
+    ?>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header pt-3">
+        <h3 id="offcanvasRightLabel">Compare List</h3>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="compare-sidebar">
+        
+        <div id="compare-list" class="row"></div>
+        <ul></ul>
+        <div class="d-grid gap-2">
+        <button id="generate-compare" class="btn btn-success">Generate Compare</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas" aria-label="Close">Close</button>    
+        </div>
+        </div>
+      </div>
+    </div>
+    <?php
+}
+
+add_action('wp_footer', 'add_custom_script_to_footer', 999);
