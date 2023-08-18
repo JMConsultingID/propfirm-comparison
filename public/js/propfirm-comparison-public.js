@@ -51,9 +51,7 @@
                 	<div class="card w-100">
 					  <img src="${propfirmButton.getAttribute('data-image-url')}" class="card-img-top" alt="${propfirmButton.getAttribute('data-propfirm-title')}">
 					  <div class="card-body">
-					    <h5 class="card-title">${propfirmButton.getAttribute('data-propfirm-title')}</h5>
-					    <p class="card-text">${propfirmButton.getAttribute('data-custom-field')}</p>
-					    <button class="remove-compare btn btn-danger" data-propfirm-id="${id}">Remove</button>
+					    <button class="remove-compare btn btn-lg btn-danger" data-propfirm-id="${id}">Remove</button>
 					  </div>
 					</div>
                 `;
