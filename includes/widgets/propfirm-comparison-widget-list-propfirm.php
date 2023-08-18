@@ -38,7 +38,7 @@ class Elementor_PropfirmComparison_Widget_listPropfirm extends \Elementor\Widget
 			[
 				'label' => esc_html__( 'Title', 'propfirm-comparison' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Magnificent views', 'propfirm-comparison' ),
+				'default' => esc_html__( 'List Propfirm', 'propfirm-comparison' ),
 			]
 		);
 
@@ -47,7 +47,7 @@ class Elementor_PropfirmComparison_Widget_listPropfirm extends \Elementor\Widget
 			[
 				'label' => esc_html__( 'Sub Title', 'propfirm-comparison' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Overlooking a Tropical Forest Above The Ayung River', 'propfirm-comparison' ),
+				'default' => esc_html__( 'Select and Compare List Propfirm' ),
 			]
 		);
 
