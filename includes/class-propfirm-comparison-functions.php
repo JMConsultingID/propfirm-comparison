@@ -8,8 +8,8 @@ session_start();
 function propfirm_comparison_settings_page() {
     add_submenu_page(
         'edit.php?post_type=propfirm',
-        'Settings Propfirm Comparasion',
-        'Settings Propfirm Comparasion',
+        'Propfirm Settings',
+        'Propfirm Settings',
         'manage_options',
         'propfirm_comparison',
         'propfirm_comparison_settings_page_content'
@@ -21,7 +21,7 @@ add_action('admin_menu', 'propfirm_comparison_settings_page');
 function propfirm_comparison_settings_page_content() {
     ?>
     <div class="wrap">
-        <h2>Settings Propfirm Comparison</h2>
+        <h2>Propfirm Comparison Settings</h2>
         <form method="post" action="options.php">
             <?php
             settings_fields('propfirm_comparison_settings');
