@@ -159,6 +159,8 @@
 
         clearSessionButton.addEventListener('click', function() {
             // Use WP Ajax to clear session
+            localStorage.removeItem('compare_list'); // Clear local storage
+            
             const data = {
                 action: 'clear_session',
             };
@@ -168,8 +170,7 @@
                 body: new URLSearchParams(data),
             }).then(response => response.json())
             .then(data => {
-                if (data.success) {
-                    localStorage.removeItem('compare_list'); // Clear local storage
+                if (data.success) {                    
                     updateCompareList(); // Update the displayed list
                     location.reload();
                 } else {
