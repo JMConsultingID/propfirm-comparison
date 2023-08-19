@@ -96,7 +96,6 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 
 			if (empty($propfirm_ids)) {
     			echo "<p>Warning : No PropFirm data available for comparison. this is for example</p>";
-    			return;
     		}
 
 			if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
@@ -111,6 +110,8 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 				$propfirm_ids = $random_post_ids;
     		}
 
+    		if (!empty($propfirm_ids)) {
+    			echo "<p>Warning : No PropFirm data available for comparison. this is for example</p>";
 			foreach ($propfirm_ids as $propfirm_id) {
 			    $propfirms[$propfirm_id] = array(
 			        'title' => get_the_title($propfirm_id),
@@ -150,6 +151,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			    </tbody>
 			</table>
 		<?php 
+		}
 		?>
 		</div>
 		<!-- Propfirm Compare Table End-->		
