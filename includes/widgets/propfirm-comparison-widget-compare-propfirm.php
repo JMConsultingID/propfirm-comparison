@@ -92,7 +92,8 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 
 			// Loop through $propfirm_ids to get data and build the comparison table
 			if (empty($propfirm_ids)) {
-    			echo "No PropFirm data available for comparison.";
+    			echo "No PropFirm data available for comparison. this is for example";
+    			$propfirm_ids = 400;
     		} else {
 
     		// Fetch necessary data for each propfirm (replace this with your actual code)
