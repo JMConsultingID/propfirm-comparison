@@ -126,7 +126,6 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			            <th scope="col">Feature</th>
 			            <?php foreach ($propfirms as $propfirm_id => $propfirm) : ?>
 			                <th scope="col">
-			                	<?php echo !empty($field_value) ? $field_value : '-'; ?>
 			                	<?php echo !empty($propfirm['title']) ? $propfirm['title'] : 'Example Title' ; ?></th>
 			            <?php endforeach; ?>
 			        </tr>
