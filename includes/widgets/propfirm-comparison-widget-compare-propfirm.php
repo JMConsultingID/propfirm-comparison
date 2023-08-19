@@ -96,7 +96,14 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 
 			if (empty($propfirm_ids)) {
     			echo "<h3>No PropFirm data available for comparison. this is for example</h3>";
-    			
+    			$args = array(
+				    'post_type'      => 'propfirm', // Replace with your custom post type slug
+				    'posts_per_page' => 2, // Number of random posts you want to retrieve
+				    'orderby'        => 'rand', // Order by random
+				    'fields'         => 'ids', // Only retrieve post IDs
+				);
+				$random_post_ids = get_posts( $args );
+				$propfirm_ids = $random_post_ids
     		}
 
 			foreach ($propfirm_ids as $propfirm_id) {
