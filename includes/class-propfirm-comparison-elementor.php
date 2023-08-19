@@ -60,7 +60,6 @@ function add_offcanvas_comparasion_to_footer() {
         <div class="compare-sidebar">
         
         <div id="compare-list" class="row"></div>
-        <ul></ul>
         <div class="d-grid gap-2">
         <?php
             $options = get_option('propfirm_comparison_settings');
