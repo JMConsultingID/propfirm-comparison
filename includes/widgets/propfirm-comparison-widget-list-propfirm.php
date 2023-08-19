@@ -57,9 +57,9 @@ class Elementor_PropfirmComparison_Widget_listPropfirm extends \Elementor\Widget
 	            'label' => __( 'Post Type', 'propfirm-comparison' ),
 	            'type' => \Elementor\Controls_Manager::SELECT,
 	            'options' => [
-					'post' => esc_html__( 'None', 'textdomain' ),
-					'page'  => esc_html__( 'Solid', 'textdomain' ),
-					'propfirm' => esc_html__( 'Dashed', 'textdomain' ),
+					'post' => esc_html__( 'Post', 'textdomain' ),
+					'page'  => esc_html__( 'Page', 'textdomain' ),
+					'propfirm' => esc_html__( 'Propfirm', 'textdomain' ),
 				],
 	            'default' => 'propfirm',
 	        ]

@@ -41,9 +41,11 @@ add_action( 'elementor/elements/categories_registered', 'add_propfirm_comparison
 
 function register_propfirm_comparison_widget( $widgets_manager ) {
 
-    require_once( __DIR__ . '/widgets/propfirm-comparison-widget-list-propfirm.php' );    
+    require_once( __DIR__ . '/widgets/propfirm-comparison-widget-list-propfirm.php' );
+    require_once( __DIR__ . '/widgets/propfirm-comparison-widget-compare-propfirm.php' );    
 
     $widgets_manager->register( new \Elementor_PropfirmComparison_Widget_listPropfirm() );
+    $widgets_manager->register( new \Elementor_PropfirmComparison_Widget_comparePropfirm() );    
 }
 add_action( 'elementor/widgets/register', 'register_propfirm_comparison_widget' );
 
