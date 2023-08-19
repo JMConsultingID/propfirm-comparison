@@ -95,8 +95,8 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			$propfirms = array();
 
 			if (empty($propfirm_ids)) {
-    			echo "No PropFirm data available for comparison. this is for example";
-    			$propfirm_ids = array("400","401");
+    			echo "<h3>No PropFirm data available for comparison. this is for example</h3>";
+    			
     		}
 
 			foreach ($propfirm_ids as $propfirm_id) {
@@ -113,7 +113,6 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 
     		?>
 			<h1>Comparison Results</h1>
-			<p><?php print_r($propfirm_ids); ?></p>
 			<table class="table table-bordered table-success table-striped table-hover">
 			    <thead>
 			        <tr>
