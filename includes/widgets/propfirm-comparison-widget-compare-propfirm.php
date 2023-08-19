@@ -103,7 +103,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 				    'fields'         => 'ids', // Only retrieve post IDs
 				);
 				$random_post_ids = get_posts( $args );
-				$propfirm_ids = $random_post_ids
+				$propfirm_ids = $random_post_ids;
     		}
 
 			foreach ($propfirm_ids as $propfirm_id) {
