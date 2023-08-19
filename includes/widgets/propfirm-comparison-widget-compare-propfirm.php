@@ -96,7 +96,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			$propfirms = array();
 
 			if (empty($propfirm_ids) && !\Elementor\Plugin::$instance->editor->is_edit_mode()) {
-    			echo "<p>Warning : No PropFirm data available for comparison. this is for example</p>";
+    			echo "<p>Warning : No PropFirm data available for comparison. Please select the Propfirm to compare</p>";
     		}
 
 			if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
