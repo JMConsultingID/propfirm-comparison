@@ -94,7 +94,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
     		// Fetch necessary data for each propfirm (replace this with your actual code)
 			$propfirms = array();
 
-			if (empty($propfirm_ids)) {
+			if (empty($propfirm_ids) && !\Elementor\Plugin::$instance->editor->is_edit_mode()) {
     			echo "<p>Warning : No PropFirm data available for comparison. this is for example</p>";
     		}
 
@@ -111,7 +111,6 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
     		}
 
     		if (!empty($propfirm_ids)) {
-    			echo "<p>Warning : No PropFirm data available for comparison. this is for example</p>";
 			foreach ($propfirm_ids as $propfirm_id) {
 			    $propfirms[$propfirm_id] = array(
 			        'title' => get_the_title($propfirm_id),
