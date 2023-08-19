@@ -38,7 +38,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			[
 				'label' => esc_html__( 'Title', 'propfirm-comparison' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'List Propfirm', 'propfirm-comparison' ),
+				'default' => esc_html__( 'Propfirm Comparasion Page', 'propfirm-comparison' ),
 			]
 		);
 
@@ -47,7 +47,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			[
 				'label' => esc_html__( 'Sub Title', 'propfirm-comparison' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Select and Compare List Propfirm' ),
+				'default' => esc_html__( 'Compare List Propfirm' ),
 			]
 		);
 
@@ -80,7 +80,8 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 
 		?>
 		<!-- Propfirm Compare Table Start-->
-		<div class="col-12">
+		<div class="col-12">			
+			<h1><?php echo $propfirm_heading_title; ?></h1>
 			<?php
 			$propfirm_ids = isset($_GET['propfirm_ids']) ? explode(',', $_GET['propfirm_ids']) : array();
 
@@ -124,7 +125,6 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			}
 
     		?>
-			<h1>Comparison Results</h1>
 			<table class="table table-bordered table-success table-striped table-hover">
 			    <thead>
 			        <tr>
