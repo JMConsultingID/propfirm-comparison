@@ -112,7 +112,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 
     		?>
 			<h1>Comparison Results</h1>
-			<p><?php echo $propfirm_ids; ?></p>
+			<p><?php print_r($propfirm_ids); ?></p>
 			<table class="table table-bordered table-success table-striped table-hover">
 			    <thead>
 			        <tr>
