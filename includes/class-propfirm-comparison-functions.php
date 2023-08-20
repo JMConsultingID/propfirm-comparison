@@ -200,6 +200,14 @@ function add_offcanvas_comparasion_to_footer() {
 
 add_action('wp_footer', 'add_offcanvas_comparasion_to_footer');
 
+function enqueue_ajax_script() {
+    wp_enqueue_script('ajax-script', get_template_directory_uri() . '/js/ajax-script.js', array('jquery'), '1.0', true);
+
+    // Pass the URL to the script
+    wp_localize_script('ajax-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
+}
+add_action('wp_enqueue_scripts', 'enqueue_ajax_script');
+
 // Add to compare session
 function add_to_compare_session() {
     $propfirm_id = isset($_POST['propfirm_id']) ? intval($_POST['propfirm_id']) : 0;
@@ -290,3 +298,17 @@ function get_propfirm_data() {
 // Add AJAX action to fetch propfirm data
 add_action('wp_ajax_get_propfirm_data', 'get_propfirm_data');
 add_action('wp_ajax_nopriv_get_propfirm_data', 'get_propfirm_data'); // For non-logged in users
+
+function get_propfirm_slugs_callback() {
+    $selected_ids = $_POST['selected_ids'];
+    $propfirm_slugs = array();
+
+    foreach ($selected_ids as $selected_id) {
+        // Get the slug based on the post ID
+        $propfirm_slugs[] = get_post_field('post_name', $selected_id);
+    }
+
+    wp_send_json_success(array('propfirm_slugs' => $propfirm_slugs));
+}
+add_action('wp_ajax_get_propfirm_slugs', 'get_propfirm_slugs_callback');
+add_action('wp_ajax_nopriv_get_propfirm_slugs', 'get_propfirm_slugs_callback');

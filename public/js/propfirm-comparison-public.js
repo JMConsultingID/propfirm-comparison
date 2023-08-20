@@ -32,7 +32,7 @@
         const compareButtons = document.querySelectorAll('.compare-button');
         const compareList = document.getElementById('compare-list');
         const generateCompareButton = document.getElementById('generate-compare');
-        const ajaxUrlElement = document.getElementById('ajax-url');
+        const ajaxUrlElement = '<?php echo admin_url('admin-ajax.php'); ?>';
         const ajaxUrl = ajaxUrlElement.getAttribute('data-url');
         const fixedButton = document.getElementById('fixed-button'); // Get the fixed button element
         const clearSessionButton = document.getElementById('clear-session');
@@ -104,7 +104,7 @@
         compareButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
-                let propfirmId = e.target.getAttribute('data-propfirm-slug');
+                let propfirmId = parseInt(e.target.getAttribute('data-propfirm-id'));
                 if (!selectedIds.includes(propfirmId)) {
                     selectedIds.push(propfirmId);
                     updateCompareList();
@@ -151,7 +151,7 @@
 
         generateCompareButton.addEventListener('click', function() {
             if (selectedIds.length > 0) {
-                const propfirmIdsParam = selectedIds.map(id => encodeURIComponent(id)).join('&');
+                const propfirmIdsParam = selectedIds.map(id => encodeURIComponent(id)).join(',');
                 const propfirmUrl = generateCompareButton.getAttribute('data-propfirm-url'); // Get the URL from the data attribute
     			const url = `/${propfirmUrl}?propfirm_ids=${propfirmIdsParam}`;
                 window.location.href = url;
