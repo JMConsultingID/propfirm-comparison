@@ -82,7 +82,7 @@ function propfirm_comparison_general_section_callback() {
         <li>For customizing the style, expand using CSS. This plugin uses Bootstrap 5.</li>
         <li>In the General Settings of Propfirm Comparison, select the post type, then choose the ACF Parameter Group, and select the Compare page you created earlier using Elementor.</li>
         <li>Enjoy using this plugin.</li>
-        <li>If you have any questions, please send an email to ardi@jm-consulting.id.</li>
+        <li>If you have any questions, please send an email to <a href="mailto:ardi@jm-consulting.id">ardi@jm-consulting.id</a>.</li>
     </ol>
     ';
 }
