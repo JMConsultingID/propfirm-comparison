@@ -51,7 +51,7 @@ function propfirm_comparison_acf_dependency_notice() {
     if (!class_exists('ACF')) {
         ?>
         <div class="notice notice-warning">
-            <p><?php _e('The "Advanced Custom Fields" plugin is required for this plugin to work properly. Please install and activate it.', 'propfirm-comparison'); ?></p>
+            <p><?php _e('Funded Trading Propfirm Comparison requires "Advanced Custom Fields" to be installed and active.', 'propfirm-comparison'); ?></p>
         </div>
         <?php
     }
