@@ -65,4 +65,4 @@ function propfirm_comparison_widgets_dependencies() {
     /* Styles */
     wp_register_style( 'propfirm-comparison-widget-propfirm-bootstrap-style', plugins_url( 'widgets/assets/css/widget-style-propfirm-list.css', __FILE__ ) );
 }
-add_action( 'wp_enqueue_scripts', 'propfirm-comparison-widget-propfirm-bootstrap-style' );
+add_action( 'wp_enqueue_scripts', 'propfirm_comparison_widgets_dependencies' );
