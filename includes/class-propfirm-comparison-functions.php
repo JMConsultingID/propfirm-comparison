@@ -181,7 +181,7 @@ function add_offcanvas_comparasion_to_footer() {
       </div>
       <div class="offcanvas-body">
         <div class="compare-sidebar">
-        ="list-group mb-3">
+        <ul class="list-group mb-3">
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Product name</h6>
