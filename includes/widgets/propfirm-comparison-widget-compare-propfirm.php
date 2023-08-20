@@ -118,6 +118,8 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 				$random_post_ids = get_posts( $args );
 				$propfirm_ids = $random_post_ids;
     		}
+
+    		if (!empty($propfirm_ids)) {
     		?>
     		<div class="table-responsive">
 			<table class="table table-striped text-successtable-border border-light table-hover">
