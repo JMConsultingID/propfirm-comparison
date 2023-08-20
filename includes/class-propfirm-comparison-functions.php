@@ -98,66 +98,33 @@ function create_propfirm_post_type() {
 }
 add_action('init', 'create_propfirm_post_type');
 
-// Create Custom Field On Post Type Propfirm
-add_filter( 'rwmb_meta_boxes', 'your_prefix_register_meta_boxes' );
-
-function your_prefix_register_meta_boxes( $meta_boxes ) {
-    $prefix = '';
-
-    $meta_boxes[] = [
-        'title'      => esc_html__( 'Propfirm Field', 'propfirm-comparison' ),
-        'id'         => 'propfirm-field',
-        'post_types' => ['propfirm'],
-        'context'    => 'normal',
-        'autosave'   => true,
-        'fields'     => [
-            [
-                'type'        => 'text',
-                'name'        => esc_html__( 'Propfirm Futures', 'propfirm-comparison' ),
-                'id'          => $prefix . 'propfirm_futures',
-                'desc'        => esc_html__( 'Propfirm Futures', 'propfirm-comparison' ),
-                'placeholder' => esc_html__( 'Propfirm Futures', 'propfirm-comparison' ),
-            ],
-            [
-                'type'        => 'text',
-                'name'        => esc_html__( 'Propfirm Forex', 'propfirm-comparison' ),
-                'id'          => $prefix . 'propfirm_forex',
-                'desc'        => esc_html__( 'Propfirm Forex', 'propfirm-comparison' ),
-                'placeholder' => esc_html__( 'Propfirm Forex', 'propfirm-comparison' ),
-            ],
-            [
-                'type'        => 'text',
-                'name'        => esc_html__( 'Propfirm Combo', 'propfirm-comparison' ),
-                'id'          => $prefix . 'propfirm_combo',
-                'desc'        => esc_html__( 'Propfirm Combo', 'propfirm-comparison' ),
-                'placeholder' => esc_html__( 'Propfirm Combo', 'propfirm-comparison' ),
-            ],
-            [
-                'type'        => 'text',
-                'name'        => esc_html__( 'Propfirm Fees', 'propfirm-comparison' ),
-                'id'          => $prefix . 'propfirm_fees',
-                'desc'        => esc_html__( 'Propfirm Fees', 'propfirm-comparison' ),
-                'placeholder' => esc_html__( 'Propfirm Fees', 'propfirm-comparison' ),
-            ],
-            [
-                'type'        => 'text',
-                'name'        => esc_html__( 'Propfirm Tradable Assets', 'propfirm-comparison' ),
-                'id'          => $prefix . 'propfirm_tradable_assets',
-                'desc'        => esc_html__( 'Propfirm Tradable Assets', 'propfirm-comparison' ),
-                'placeholder' => esc_html__( 'Propfirm Tradable Assets', 'propfirm-comparison' ),
-            ],
-            [
-                'type'        => 'text',
-                'name'        => esc_html__( 'Restrictions', 'propfirm-comparison' ),
-                'id'          => $prefix . 'restrictions',
-                'desc'        => esc_html__( 'Restrictions', 'propfirm-comparison' ),
-                'placeholder' => esc_html__( 'Restrictions', 'propfirm-comparison' ),
-            ],
-        ],
-    ];
-
-    return $meta_boxes;
+function add_offcanvas_comparasion_to_footer() {
+    ?>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header pt-3">
+        <h3 id="offcanvasRightLabel">Compare List</h3>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="compare-sidebar">
+        
+        <div id="compare-list" class="row"></div>
+        <div class="d-grid gap-2">
+        <?php
+            $options = get_option('propfirm_comparison_settings');
+            $page_url = isset($options['propfirm_comparison_url']) ? $options['propfirm_comparison_url'] : '';
+        ?>
+        <button id="generate-compare" class="btn btn-success" data-propfirm-url="<?php echo $page_url; ?>">Generate Compare</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas" aria-label="Close">Close</button>    
+        </div>
+        </div>
+      </div>
+    </div>
+    <button id="fixed-button" class="fixed-button btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-files"></i> 0</button>
+    <?php
 }
+
+add_action('wp_footer', 'add_offcanvas_comparasion_to_footer');
 
 // Add to compare session
 function add_to_compare_session() {
