@@ -76,13 +76,14 @@ function propfirm_comparison_general_section_callback() {
     echo '    
     <ol>
         <li>Install the Advanced Custom Fields Plugin.</li>
-        <li>Create a Field Group containing the parameters you want to compare, then assign it to the selected post type.</li>
+        <li>Create a Field Group containing the parameters you want to compare, then select the post type. For example, "post," "page," or "propfirm."</li>
+        <li>If you want to create a new post type, create a new post type using the Advanced Custom Fields Plugin.</li>
         <li>To create the Prop Firm List page, go to "New Page" and select the Elementor editor. Choose the "Propfirm List Post" widget.</li>
         <li>To create the comparison page, go to "New Page" and select the Elementor editor. Choose the "Propfirm Compare Table" widget.</li>
         <li>For customizing the style, expand using CSS. This plugin uses Bootstrap 5.</li>
-        <li>In the General Settings of Propfirm Comparison, select the post type, then choose the ACF Parameter Group, and select the Compare page you created earlier using Elementor.</li>
-        <li>Enjoy using this plugin.</li>
+        <li>In the General Settings of Propfirm Comparison, select the post type, then choose the ACF Parameter Group, and select the Compare page you created earlier using Elementor.</li>        
         <li>If you have any questions, please send an email to <a href="mailto:ardi@jm-consulting.id">ardi@jm-consulting.id</a>.</li>
+        <li>Enjoy using this plugin.</li>
     </ol>
     ';
 }
