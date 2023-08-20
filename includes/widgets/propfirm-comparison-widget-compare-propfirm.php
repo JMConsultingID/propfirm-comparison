@@ -87,7 +87,8 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 		<div class="col-12">			
 			<h1><?php echo $propfirm_heading_title; ?></h1>
 			<?php
-			$propfirm_ids = isset($_GET['propfirm_ids']) ? explode('&', $_GET['propfirm_ids']) : array();
+			$propfirm_ids = isset($_SESSION['compare_list']) && is_array($_SESSION['compare_list']) ? $_SESSION['compare_list'] : array();
+    		$propfirm_id = !empty($propfirm_ids) ? intval($propfirm_ids[0]) : 0;
 
             $options = get_option('propfirm_comparison_settings');
             $selected_post_type = isset($options['propfirm_comparison_post_type']) ? sanitize_text_field($options['propfirm_comparison_post_type']) : 'propfirm';
