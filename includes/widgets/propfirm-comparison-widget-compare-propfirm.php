@@ -123,6 +123,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			foreach ($propfirm_ids as $propfirm_id) {
 			    $propfirms[$propfirm_id] = array(
 			        'title' => get_the_title($propfirm_id),
+			    );
 			}
 
     		?>
