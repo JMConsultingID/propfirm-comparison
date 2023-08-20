@@ -89,6 +89,7 @@ class Elementor_PropfirmComparison_Widget_listPropfirm extends \Elementor\Widget
 			<h4 class="text-center"><?php echo $propfirm_heading_subtitle; ?></h4>
 			<div class="row">
 			<?php
+				global $post;
 				$args = array(
 				    'post_type' => $propfirm_post_type,  // Nama custom post type yang Anda buat
 				    'posts_per_page' => -1,     // Tampilkan semua post propfirm
