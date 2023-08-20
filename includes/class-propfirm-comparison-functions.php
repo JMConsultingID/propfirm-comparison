@@ -91,13 +91,13 @@ function propfirm_comparison_url_field_callback() {
 // Field callback
 function propfirm_comparison_acf_parameter_field_callback() {
     $options = get_option('propfirm_comparison_settings');
-    $selected_group_id = isset($options['propfirm_comparison_acf_parameterl']) ? intval($options['propfirm_comparison_acf_parameter']) : 0;
+    $selected_group_id = isset($options['propfirm_comparison_acf_parameter']) ? intval($options['propfirm_comparison_acf_parameter']) : 0;
 
     // Get all ACF groups
     $acf_groups = acf_get_field_groups();
 
     echo '<select name="propfirm_comparison_settings[propfirm_comparison_acf_parameter]">';
-    echo '<option value="">Select a Froup ACF Parameter</option>';
+    echo '<option value="0">Select a Froup ACF Parameter</option>';
 
     foreach ($acf_groups as $group) {
         $group_id = $group['ID'];
