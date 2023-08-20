@@ -90,6 +90,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			$propfirm_ids = isset($_GET['propfirm_ids']) ? explode(',', $_GET['propfirm_ids']) : array();
 
             $options = get_option('propfirm_comparison_settings');
+            $selected_post_type = isset($options['propfirm_comparison_post_type']) ? sanitize_text_field($options['propfirm_comparison_post_type']) : 'propfirm';
             $acf_group_id = isset($options['propfirm_comparison_acf_parameter']) ? intval($options['propfirm_comparison_acf_parameter']) : 0;
 
 			// Define the field group ID
@@ -109,7 +110,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
     			echo "<p>Warning : No PropFirm data available for comparison. this is for example</p>";
     			$args = array(
-				    'post_type'      => 'propfirm', // Replace with your custom post type slug
+				    'post_type'      => $selected_post_type, // Replace with your custom post type slug
 				    'posts_per_page' => 2, // Number of random posts you want to retrieve
 				    'orderby'        => 'rand', // Order by random
 				    'fields'         => 'ids', // Only retrieve post IDs

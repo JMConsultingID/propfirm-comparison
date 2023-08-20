@@ -45,17 +45,25 @@ function propfirm_comparison_register_settings() {
     );
 
     add_settings_field(
-        'propfirm_comparison_url',
-        'Propfirm Comparison URL',
-        'propfirm_comparison_url_field_callback',
+        'propfirm_comparison_post_type',
+        'Propfirm Comparison Post Type',
+        'propfirm_comparison_post_type_field_callback',
         'propfirm_comparison',
         'propfirm_comparison_general'
-    );
+    );    
 
     add_settings_field(
         'propfirm_comparison_acf_parameter',
         'Propfirm Comparison ACF Parameter Group',
         'propfirm_comparison_acf_parameter_field_callback',
+        'propfirm_comparison',
+        'propfirm_comparison_general'
+    );
+
+    add_settings_field(
+        'propfirm_comparison_url',
+        'Propfirm Comparison URL',
+        'propfirm_comparison_url_field_callback',
         'propfirm_comparison',
         'propfirm_comparison_general'
     );
@@ -68,21 +76,20 @@ function propfirm_comparison_general_section_callback() {
 }
 
 // Field callback
-function propfirm_comparison_url_field_callback() {
+function propfirm_comparison_post_type_field_callback() {
     $options = get_option('propfirm_comparison_settings');
-    $selected_slug = isset($options['propfirm_comparison_url']) ? sanitize_text_field($options['propfirm_comparison_url']) : '';
+    $selected_post_type = isset($options['propfirm_comparison_post_type']) ? sanitize_text_field($options['propfirm_comparison_post_type']) : 'propfirm';
 
 
-    // Get all pages
-    $pages = get_pages();
+    // Get all Post Type
+    $post_types = get_post_types(array('public' => true), 'objects');
 
-    echo '<select name="propfirm_comparison_settings[propfirm_comparison_url]">';
-    echo '<option value="">Select a Page</option>';
+    echo '<select name="propfirm_comparison_settings[propfirm_comparison_post_type]">';
 
-    foreach ($pages as $page) {
-        $page_slug = $page->post_name;
-        $selected = $page_slug === $selected_slug ? 'selected' : '';
-        echo "<option value='$page_slug' $selected>{$page->post_title}</option>";
+    foreach ($post_types as $post_type) {
+        $post_type_name = $post_type->name;
+        $selected = $post_type_name === $selected_post_type ? 'selected' : '';
+        echo "<option value='$post_type_name' $selected>{$post_type->labels->singular_name}</option>";
     }
 
     echo '</select>';   
@@ -106,6 +113,27 @@ function propfirm_comparison_acf_parameter_field_callback() {
     }
 
     echo '</select>';
+}
+
+// Field callback
+function propfirm_comparison_url_field_callback() {
+    $options = get_option('propfirm_comparison_settings');
+    $selected_slug = isset($options['propfirm_comparison_url']) ? sanitize_text_field($options['propfirm_comparison_url']) : '';
+
+
+    // Get all pages
+    $pages = get_pages();
+
+    echo '<select name="propfirm_comparison_settings[propfirm_comparison_url]">';
+    echo '<option value="">Select a Page</option>';
+
+    foreach ($pages as $page) {
+        $page_slug = $page->post_name;
+        $selected = $page_slug === $selected_slug ? 'selected' : '';
+        echo "<option value='$page_slug' $selected>{$page->post_title}</option>";
+    }
+
+    echo '</select>';   
 }
 
 
