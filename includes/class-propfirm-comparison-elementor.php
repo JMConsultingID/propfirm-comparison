@@ -53,6 +53,6 @@ function elementor_test_widgets_dependencies() {
     /* Scripts */
     wp_register_script( 'propfirm-comparison-widget-bootstrap-script', plugins_url( '../public/js/bootstrap.bundle.min.js', __FILE__ ) );
     /* Styles */
-    wp_register_style( 'propfirm-comparison-widget-bootstrap-style', plugins_url( '../public/css/bootstrap.min.css', __FILE__ ) );
+    wp_register_style( 'propfirm-comparison-widget-bootstrap-style', plugins_url( '../public/css/bootstrap-grid.min.css', __FILE__ ) );
 }
 add_action( 'wp_enqueue_scripts', 'elementor_test_widgets_dependencies' );
