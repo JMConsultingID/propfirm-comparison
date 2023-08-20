@@ -125,12 +125,13 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			}
 
     		?>
-			<table class="table table-bordered table-success table-striped table-hover">
-			    <thead>
+    		<div class="table-responsive">
+			<table class="table table-striped text-successtable-border border-light table-hover">
+			    <thead class="border-light">
 			        <tr>
-			            <th scope="col">Feature</th>
+			            <th scope="col"></th>
 			            <?php foreach ($propfirms as $propfirm_id => $propfirm) : ?>
-			                <th scope="col">
+			                <th scope="row">
 			                	<?php echo !empty($propfirm['title']) ? $propfirm['title'] : 'Example Title' ; ?></th>
 			            <?php endforeach; ?>
 			        </tr>
@@ -149,6 +150,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			        <?php endforeach; ?>
 			    </tbody>
 			</table>
+			</div>
 		<?php 
 		}
 		?>
