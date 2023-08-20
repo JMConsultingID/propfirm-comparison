@@ -90,7 +90,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			$propfirm_ids = isset($_GET['propfirm_ids']) ? explode(',', $_GET['propfirm_ids']) : array();
 
             $options = get_option('propfirm_comparison_settings');
-            $acf_group_id = isset($options['propfirm_comparison_acf_parameter']) ? intval($options['propfirm_comparison_url']) : 0;
+            $acf_group_id = isset($options['propfirm_comparison_acf_parameter']) ? intval($options['propfirm_comparison_acf_parameter']) : 0;
 
             echo $acf_group_id;
 
