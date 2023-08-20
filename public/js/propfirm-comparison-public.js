@@ -104,7 +104,7 @@
         compareButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
-                let propfirmId = parseInt(e.target.getAttribute('data-propfirm-slug'));
+                let propfirmId = e.target.getAttribute('data-propfirm-slug');
                 if (!selectedIds.includes(propfirmId)) {
                     selectedIds.push(propfirmId);
                     updateCompareList();
