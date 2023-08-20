@@ -50,7 +50,7 @@ function register_propfirm_comparison_widget( $widgets_manager ) {
 add_action( 'elementor/widgets/register', 'register_propfirm_comparison_widget' );
 
 function propfirm_comparison_frontend_stylesheets() {
-    wp_register_style( 'propfirm-comparison-widget-bootstrap-style', plugins_url( '../public/css/bootstrap-grid.min.css', __FILE__ ) );
+    wp_register_style( 'propfirm-comparison-widget-bootstrap-style', plugins_url( '../public/css/bootstrap.min.css', __FILE__ ) );
     wp_enqueue_style( 'propfirm-comparison-widget-bootstrap-style' );
 }
 add_action( 'elementor/frontend/before_enqueue_styles', 'propfirm_comparison_frontend_stylesheets' );
