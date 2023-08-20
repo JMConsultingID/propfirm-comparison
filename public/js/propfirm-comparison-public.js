@@ -32,7 +32,7 @@
         const compareButtons = document.querySelectorAll('.compare-button');
         const compareList = document.getElementById('compare-list');
         const generateCompareButton = document.getElementById('generate-compare');
-        const ajaxUrlElement = '<?php echo admin_url('admin-ajax.php'); ?>';
+        const ajaxUrlElement = document.getElementById('ajax-url');
         const ajaxUrl = ajaxUrlElement.getAttribute('data-url');
         const fixedButton = document.getElementById('fixed-button'); // Get the fixed button element
         const clearSessionButton = document.getElementById('clear-session');
