@@ -21,6 +21,10 @@ class Elementor_PropfirmComparison_Widget_listPropfirm extends \Elementor\Widget
 		return [ 'propfirm', 'list' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'propfirm-comparison-widget-propfirm-bootstrap-style' ];
+	}
+
 	protected function register_controls() {
 
 		// Content Tab Start

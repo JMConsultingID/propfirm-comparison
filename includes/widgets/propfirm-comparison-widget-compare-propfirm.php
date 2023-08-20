@@ -21,6 +21,10 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 		return [ 'propfirm', 'compare', 'table' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'propfirm-comparison-widget-compare-bootstrap-style' ];
+	}
+
 	protected function register_controls() {
 
 		// Content Tab Start
@@ -129,9 +133,9 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			<table class="table table-striped text-successtable-border border-light table-hover">
 			    <thead class="border-light">
 			        <tr>
-			            <th scope="col text-uppercase">Features</th>
+			            <th class="text-uppercase" scope="col">Features</th>
 			            <?php foreach ($propfirms as $propfirm_id => $propfirm) : ?>
-			                <th scope="row text-uppercase">
+			                <th class="text-uppercase" scope="row text-uppercase">
 			                	<?php echo !empty($propfirm['title']) ? $propfirm['title'] : 'Example Title' ; ?></th>
 			            <?php endforeach; ?>
 			        </tr>
