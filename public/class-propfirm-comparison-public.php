@@ -98,6 +98,7 @@ class Propfirm_Comparison_Public {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/propfirm-comparison-public.js', array( 'jquery' ), $this->version, false );
 		// Pass the URL to the script
+    	wp_localize_script($this->plugin_name, 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
 	}
 
 }

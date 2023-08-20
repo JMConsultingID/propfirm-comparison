@@ -200,14 +200,6 @@ function add_offcanvas_comparasion_to_footer() {
 
 add_action('wp_footer', 'add_offcanvas_comparasion_to_footer');
 
-function enqueue_ajax_script() {
-    wp_enqueue_script('ajax-script', get_template_directory_uri() . '/js/ajax-script.js', array('jquery'), '1.0', true);
-
-    // Pass the URL to the script
-    wp_localize_script('ajax-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
-}
-add_action('wp_enqueue_scripts', 'enqueue_ajax_script');
-
 // Add to compare session
 function add_to_compare_session() {
     $propfirm_id = isset($_POST['propfirm_id']) ? intval($_POST['propfirm_id']) : 0;
