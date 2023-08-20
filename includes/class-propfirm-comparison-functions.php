@@ -101,7 +101,7 @@ function propfirm_comparison_acf_parameter_field_callback() {
     $selected_group_id = isset($options['propfirm_comparison_acf_parameter']) ? intval($options['propfirm_comparison_acf_parameter']) : 0;
 
     // Get all ACF groups
-    if (!class_exists('ACF')) {
+    if (class_exists('ACF')) {
     $acf_groups = acf_get_field_groups();
 
     echo '<select name="propfirm_comparison_settings[propfirm_comparison_acf_parameter]">';
