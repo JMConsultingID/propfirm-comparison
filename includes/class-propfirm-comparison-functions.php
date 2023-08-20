@@ -71,7 +71,6 @@ function propfirm_comparison_general_section_callback() {
 function propfirm_comparison_url_field_callback() {
     $options = get_option('propfirm_comparison_settings');
     $selected_slug = isset($options['propfirm_comparison_url']) ? sanitize_text_field($options['propfirm_comparison_url']) : '';
-    $selected_group_id = isset($options['propfirm_comparison_url']) ? intval($options['propfirm_comparison_url']) : 0;
 
 
     // Get all pages
@@ -92,12 +91,12 @@ function propfirm_comparison_url_field_callback() {
 // Field callback
 function propfirm_comparison_acf_parameter_field_callback() {
     $options = get_option('propfirm_comparison_settings');
-    $selected_group_id = isset($options['propfirm_comparison_url']) ? intval($options['propfirm_comparison_url']) : 0;
+    $selected_group_id = isset($options['propfirm_comparison_acf_parameterl']) ? intval($options['propfirm_comparison_acf_parameter']) : 0;
 
     // Get all ACF groups
     $acf_groups = acf_get_field_groups();
 
-    echo '<select name="propfirm_comparison_settings[propfirm_acf_group]">';
+    echo '<select name="propfirm_comparison_settings[propfirm_comparison_acf_parameter]">';
     echo '<option value="">Select a Froup ACF Parameter</option>';
 
     foreach ($acf_groups as $group) {
