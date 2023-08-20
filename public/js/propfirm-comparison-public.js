@@ -153,8 +153,9 @@
             if (selectedIds.length > 0) {
                 const propfirmIdsParam = selectedIds.map(id => encodeURIComponent(id)).join(',');
                 const propfirmUrl = generateCompareButton.getAttribute('data-propfirm-url'); // Get the URL from the data attribute
-                const propfirmSlugs = selectedIds.map(id => propfirmData[id].slug); // Get the slugs based on IDs
-
+                // Get the slugs from the data attributes of the compare buttons
+                const propfirmSlugs = selectedIds.map(id => document.querySelector(`[data-propfirm-id="${id}"]`).getAttribute('data-propfirm-slug'));
+                
                 const compareSlugs = propfirmSlugs.join('-vs-'); // Create the slug format
 
                 const url = `/${propfirmUrl}/${compareSlugs}/`; // Construct the new URL

@@ -101,7 +101,10 @@ class Elementor_PropfirmComparison_Widget_listPropfirm extends \Elementor\Widget
 				if ($propfirm_query->have_posts()) :
 				    while ($propfirm_query->have_posts()) : $propfirm_query->the_post();
 				    ?>
-				    	<?php $values = rwmb_meta( 'propfirm_futures' ) ?>
+				    	<?php 
+				    		$values = rwmb_meta( 'propfirm_futures' );
+				    		$post_slug = $post->post_name;
+				    	?>
 				    	
 				    	<div class="col-lg-4 col-md-6 col-sm-12">
 					    <div class="card">
@@ -114,7 +117,7 @@ class Elementor_PropfirmComparison_Widget_listPropfirm extends \Elementor\Widget
 						    <h5 class="card-title"><?php the_title(); ?></h5>
 						    <p class="card-text"><?php echo $values; ?></p>
 						    <p>
-						    <?php echo '<button class="btn btn-primary compare-button" data-propfirm-id="' . get_the_ID() . '" data-propfirm-title="' . get_the_title() . '" data-image-url="' . $featured_thumb_image_url . '" data-custom-field="' . $values. '" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Compare</button>'; ?>
+						    <?php echo '<button class="btn btn-primary compare-button" data-propfirm-id="' . get_the_ID() . '" data-propfirm-title="' . get_the_title() . '" data-image-url="' . $featured_thumb_image_url . '" data-propfirm-slug="'.$post_slug.'" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Compare</button>'; ?>
 							</p>
 						  </div>
 						</div>
