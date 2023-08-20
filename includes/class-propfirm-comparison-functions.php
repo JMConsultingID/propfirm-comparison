@@ -72,10 +72,8 @@ add_action('admin_init', 'propfirm_comparison_register_settings');
 
 // Section callback
 function propfirm_comparison_general_section_callback() {
-    echo '<h3>General settings for Propfirm Comparison</h3>';
-    echo '
-    <h5>Propfirm Plugin Instructions</h5>
-    
+    echo '<h3>Funded Trading Propfirm Comparison Plugin Instructions</h3>';
+    echo '    
     <ol>
         <li>Install the Advanced Custom Fields Plugin.</li>
         <li>Create a Field Group containing the parameters you want to compare, then assign it to the selected post type.</li>
