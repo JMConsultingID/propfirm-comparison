@@ -87,7 +87,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 		<div class="col-12">			
 			<h1><?php echo $propfirm_heading_title; ?></h1>
 			<?php
-			$propfirm_compare = sanitize_text_field($_GET['propfirm-compare']); // Get the propfirm compare parameter
+			$propfirm_compare = sanitize_text_field($_GET['propfirm_compare']); // Get the propfirm compare parameter
 
 			// Extract the propfirm slugs from the parameter
 			$propfirm_slugs = explode('-vs-', $propfirm_compare);
