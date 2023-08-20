@@ -151,7 +151,7 @@
 
         generateCompareButton.addEventListener('click', function() {
             if (selectedIds.length > 0) {
-                const propfirmIdsParam = selectedIds.map(id => encodeURIComponent(id)).join(',');
+                const propfirmIdsParam = selectedIds.map(id => encodeURIComponent(id)).join('&');
                 const propfirmUrl = generateCompareButton.getAttribute('data-propfirm-url'); // Get the URL from the data attribute
     			const url = `/${propfirmUrl}?propfirm_ids=${propfirmIdsParam}`;
                 window.location.href = url;
