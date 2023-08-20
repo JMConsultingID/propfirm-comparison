@@ -46,6 +46,20 @@ function activate_propfirm_comparison() {
 	Propfirm_Comparison_Activator::activate();
 }
 
+// Add admin notice if ACF is not installed
+function propfirm_comparison_acf_dependency_notice() {
+    if (!class_exists('ACF')) {
+        ?>
+        <div class="notice notice-warning">
+            <p><?php _e('The "Advanced Custom Fields" plugin is required for this plugin to work properly. Please install and activate it.', 'propfirm-comparison'); ?></p>
+        </div>
+        <?php
+    }
+}
+
+// Display the ACF dependency notice
+add_action('admin_notices', 'propfirm_comparison_acf_dependency_notice');
+
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-propfirm-comparison-deactivator.php
