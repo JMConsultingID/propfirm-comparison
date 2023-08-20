@@ -51,6 +51,14 @@ function propfirm_comparison_register_settings() {
         'propfirm_comparison',
         'propfirm_comparison_general'
     );
+
+    add_settings_field(
+        'propfirm_comparison_acf_parameter',
+        'Propfirm Comparison ACF Parameter Group',
+        'propfirm_comparison_acf_parameter_field_callback',
+        'propfirm_comparison',
+        'propfirm_comparison_general'
+    );
 }
 add_action('admin_init', 'propfirm_comparison_register_settings');
 
@@ -78,7 +86,13 @@ function propfirm_comparison_url_field_callback() {
         echo "<option value='$page_slug' $selected>{$page->post_title}</option>";
     }
 
-    echo '</select>';
+    echo '</select>';   
+}
+
+// Field callback
+function propfirm_comparison_acf_parameter_field_callback() {
+    $options = get_option('propfirm_comparison_settings');
+    $selected_group_id = isset($options['propfirm_comparison_url']) ? intval($options['propfirm_comparison_url']) : 0;
 
     // Get all ACF groups
     $acf_groups = acf_get_field_groups();
@@ -89,7 +103,7 @@ function propfirm_comparison_url_field_callback() {
     foreach ($acf_groups as $group) {
         $group_id = $group['ID'];
         $selected = $group_id === $selected_group_id ? 'selected' : '';
-        echo "<option value='$group_id' $selected>{$group['title']}</option>";
+        echo "<option value='$group_id' $selected>$group_id.' - '.$group['title']}</option>";
     }
 
     echo '</select>';
