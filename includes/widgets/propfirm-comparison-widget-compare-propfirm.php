@@ -92,10 +92,8 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
             $options = get_option('propfirm_comparison_settings');
             $acf_group_id = isset($options['propfirm_comparison_acf_parameter']) ? intval($options['propfirm_comparison_acf_parameter']) : 0;
 
-            echo $acf_group_id;
-
 			// Define the field group ID
-			$field_group_id = "417"; // Replace with your ACF field group ID
+			$field_group_id = $acf_group_id; // Replace with your ACF field group ID
 
 			// Get all fields within the "Field Group"
 			$field_objects = acf_get_fields($field_group_id);
