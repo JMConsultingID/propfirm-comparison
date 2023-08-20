@@ -111,6 +111,8 @@ function propfirm_comparison_acf_parameter_field_callback() {
         $group_id = $group['ID'];
         $selected = $group_id === $selected_group_id ? 'selected' : '';
         echo "<option value='$group_id' $selected>$group_id - {$group['title']}</option>";
+    } else{
+        echo "Funded Trading Propfirm Comparison requires 'Advanced Custom Fields' to be installed and active.";
     }
 
     echo '</select>';
