@@ -33,7 +33,7 @@
         const compareList = document.getElementById('compare-list');
         const generateCompareButton = document.getElementById('generate-compare');
         const ajaxUrlElement = document.getElementById('ajax-url');
-        const ajaxUrl = ajaxUrlElement.getAttribute('data-url');
+        const ajaxUrl = ajaxUrlElement.getAttribute('data-url');       
         const fixedButton = document.getElementById('fixed-button'); // Get the fixed button element
         const clearSessionButton = document.getElementById('clear-session');
 
@@ -151,12 +151,30 @@
 
         generateCompareButton.addEventListener('click', function() {
             if (selectedIds.length > 0) {
-                const propfirmIdsParam = selectedIds.map(id => encodeURIComponent(id)).join(',');
-                const propfirmUrl = generateCompareButton.getAttribute('data-propfirm-url'); // Get the URL from the data attribute
-    			const url = `/${propfirmUrl}?propfirm_ids=${propfirmIdsParam}`;
-                window.location.href = url;
+                const selectedIds = JSON.parse(localStorage.getItem('compare_list')) || [];
+                const ajaxUrlCon = ajax_object.ajax_url;
+
+                // Perform AJAX request to retrieve propfirm slugs based on IDs
+                $.ajax({
+                    url: ajaxUrlCon,
+                    type: 'POST',
+                    data: {
+                        action: 'get_propfirm_slugs',
+                        selected_ids: selectedIds
+                    },
+                    success: function(response) {
+                        const propfirmSlugs = response.data.propfirm_slugs;
+                        const propfirmUrl = generateCompareButton.getAttribute('data-propfirm-url'); // Get the URL from the data attribute
+
+                        const compareSlugs = propfirmSlugs.join('-vs-'); // Create the slug format
+
+                        const url = `/${propfirmUrl}?propfirm_ids=${compareSlugs}`;
+                        window.location.href = url;
+                    }
+                });
             }
         });
+
 
         clearSessionButton.addEventListener('click', function() {
             // Use WP Ajax to clear session
