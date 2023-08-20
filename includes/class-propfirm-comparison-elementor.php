@@ -50,9 +50,7 @@ function register_propfirm_comparison_widget( $widgets_manager ) {
 add_action( 'elementor/widgets/register', 'register_propfirm_comparison_widget' );
 
 function propfirm_comparison_widgets_dependencies() {
-    /* Scripts */
-    wp_register_script( 'propfirm-comparison-widget-bootstrap-script', plugins_url( '../public/js/bootstrap.bundle.min.js', __FILE__ ) );
     /* Styles */
-    wp_register_style( 'propfirm-comparison-widget-bootstrap-style', plugins_url( '../public/css/bootstrap-grid.min.css', __FILE__ ), false );
+    wp_register_style( 'propfirm-comparison-widget-bootstrap-style', plugins_url( '../public/css/bootstrap-grid.min.css', __FILE__ ) );
 }
 add_action( 'wp_enqueue_scripts', 'propfirm_comparison_widgets_dependencies' );
