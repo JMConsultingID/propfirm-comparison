@@ -21,10 +21,6 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 		return [ 'propfirm', 'compare', 'table' ];
 	}
 
-	public function get_style_depends() {
-		return [ 'propfirm-comparison-widget-compare-bootstrap-style' ];
-	}
-
 	protected function register_controls() {
 
 		// Content Tab Start
