@@ -120,6 +120,17 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
     		}
 
     		if (!empty($propfirm_ids)) {
+			foreach ($propfirm_ids as $propfirm_id) {
+			    $propfirms[$propfirm_id] = array(
+			        'title' => get_the_title($propfirm_id),
+			        'propfirm_futures' => rwmb_meta( 'propfirm_futures', '', $propfirm_id ),
+	    			'propfirm_forex' => rwmb_meta( 'propfirm_forex', '', $propfirm_id ),
+	    			'propfirm_combo' => rwmb_meta( 'propfirm_combo', '', $propfirm_id ),
+	    			'propfirm_fees' => rwmb_meta( 'propfirm_fees', '', $propfirm_id ),
+	    			'propfirm_tradable_assets' => rwmb_meta( 'propfirm_tradable_assets', '', $propfirm_id ),
+			    );
+			}
+
     		?>
     		<div class="table-responsive">
 			<table class="table table-striped text-successtable-border border-light table-hover">
