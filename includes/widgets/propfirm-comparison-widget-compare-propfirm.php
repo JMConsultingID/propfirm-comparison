@@ -87,7 +87,19 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 		<div class="col-12">			
 			<h1><?php echo $propfirm_heading_title; ?></h1>
 			<?php
-			$propfirm_ids = isset($_GET['propfirm_ids']) ? explode(',', $_GET['propfirm_ids']) : array();
+			$propfirm_compare = sanitize_text_field($_GET['propfirm-compare']); // Get the propfirm compare parameter
+
+			// Extract the propfirm slugs from the parameter
+			$propfirm_slugs = explode('-vs-', $propfirm_compare);
+
+			// Loop through the slugs and retrieve the corresponding post IDs
+			$propfirm_ids = array();
+			foreach ($propfirm_slugs as $slug) {
+			    $propfirm = get_page_by_path($slug, OBJECT, 'propfirm'); // Replace 'propfirm' with your custom post type slug
+			    if ($propfirm) {
+			        $propfirm_ids[] = $propfirm->ID;
+			    }
+			}
 
             $options = get_option('propfirm_comparison_settings');
             $selected_post_type = isset($options['propfirm_comparison_post_type']) ? sanitize_text_field($options['propfirm_comparison_post_type']) : 'propfirm';

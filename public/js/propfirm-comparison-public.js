@@ -155,7 +155,7 @@
                 const propfirmUrl = generateCompareButton.getAttribute('data-propfirm-url'); // Get the URL from the data attribute
     			const propfirmSlugs = selectedIds.map(id => document.querySelector(`[data-propfirm-id="${id}"]`).getAttribute('data-propfirm-slug'));
                 const compareSlugs = propfirmSlugs.join('-vs-');
-                const url = `/${propfirmUrl}?propfirm_ids=${compareSlugs}`;
+                const url = `/${propfirmUrl}?propfirm_compare=${compareSlugs}`;
                 window.location.href = url;
             }
         });
