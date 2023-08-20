@@ -103,7 +103,7 @@ function propfirm_comparison_acf_parameter_field_callback() {
     foreach ($acf_groups as $group) {
         $group_id = $group['ID'];
         $selected = $group_id === $selected_group_id ? 'selected' : '';
-        echo "<option value='$group_id' $selected>$group_id.' - '.$group['title']}</option>";
+        echo "<option value='$group_id' $selected>$group_id - {$group['title']}</option>";
     }
 
     echo '</select>';
