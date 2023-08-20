@@ -110,7 +110,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
     			echo "<p>Warning : No PropFirm data available for comparison. this is for example</p>";
     			$args = array(
-				    'post_type'      => $selected_post_type, // Replace with your custom post type slug
+				    'post_type'      => 'propfirm', // Replace with your custom post type slug
 				    'posts_per_page' => 2, // Number of random posts you want to retrieve
 				    'orderby'        => 'rand', // Order by random
 				    'fields'         => 'ids', // Only retrieve post IDs
@@ -118,20 +118,6 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 				$random_post_ids = get_posts( $args );
 				$propfirm_ids = $random_post_ids;
     		}
-
-    		if (!empty($propfirm_ids)) {
-			foreach ($propfirm_ids as $propfirm_id) {
-			    $propfirms[$propfirm_id] = array(
-			        'title' => get_the_title($propfirm_id),
-			        'propfirm_futures' => rwmb_meta( 'propfirm_futures', '', $propfirm_id ),
-	    			'propfirm_forex' => rwmb_meta( 'propfirm_forex', '', $propfirm_id ),
-	    			'propfirm_combo' => rwmb_meta( 'propfirm_combo', '', $propfirm_id ),
-	    			'propfirm_fees' => rwmb_meta( 'propfirm_fees', '', $propfirm_id ),
-	    			'propfirm_tradable_assets' => rwmb_meta( 'propfirm_tradable_assets', '', $propfirm_id ),
-	    			'restrictions' => rwmb_meta( 'restrictions', '', $propfirm_id ),
-			    );
-			}
-
     		?>
     		<div class="table-responsive">
 			<table class="table table-striped text-successtable-border border-light table-hover">
