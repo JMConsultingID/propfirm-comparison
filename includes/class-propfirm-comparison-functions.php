@@ -270,7 +270,9 @@ add_action('wp_ajax_update_compare_session', 'update_compare_session');
 add_action('wp_ajax_nopriv_update_compare_session', 'update_compare_session');
 
 function get_propfirm_data() {
-    $propfirm_id = isset($_POST['propfirm_id']) ? intval($_POST['propfirm_id']) : 0;
+    $propfirm_ids = isset($_SESSION['compare_list']) && is_array($_SESSION['compare_list']) ? $_SESSION['compare_list'] : array();
+    $propfirm_id = !empty($propfirm_ids) ? intval($propfirm_ids[0]) : 0;
+
 
     if ($propfirm_id > 0) {
         $post = get_post($propfirm_id);
