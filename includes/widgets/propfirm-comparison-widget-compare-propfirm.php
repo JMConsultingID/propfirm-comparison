@@ -129,7 +129,7 @@ class Elementor_PropfirmComparison_Widget_comparePropfirm extends \Elementor\Wid
 			<table class="table table-striped text-successtable-border border-light table-hover">
 			    <thead class="border-light">
 			        <tr>
-			            <th scope="col"></th>
+			            <th scope="col">Features</th>
 			            <?php foreach ($propfirms as $propfirm_id => $propfirm) : ?>
 			                <th scope="row">
 			                	<?php echo !empty($propfirm['title']) ? $propfirm['title'] : 'Example Title' ; ?></th>
