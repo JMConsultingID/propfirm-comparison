@@ -46,6 +46,20 @@ function activate_propfirm_comparison() {
 	Propfirm_Comparison_Activator::activate();
 }
 
+// Add admin notice if ACF is not installed
+function propfirm_comparison_acf_dependency_notice() {
+    if (!class_exists('ACF')) {
+        ?>
+        <div class="notice notice-warning">
+            <p><?php _e('Funded Trading Propfirm Comparison requires "Advanced Custom Fields" to be installed and active.', 'propfirm-comparison'); ?></p>
+        </div>
+        <?php
+    }
+}
+
+// Display the ACF dependency notice
+add_action('admin_notices', 'propfirm_comparison_acf_dependency_notice');
+
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-propfirm-comparison-deactivator.php
@@ -63,6 +77,18 @@ register_deactivation_hook( __FILE__, 'deactivate_propfirm_comparison' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-propfirm-comparison.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-propfirm-comparison-functions.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-propfirm-comparison-elementor.php';
+
+function filter_action_propfirm_comparison_links( $links ) {
+     $links['settings'] = '<a href="#">' . __( 'Settings', 'propfirm-comparison' ) . '</a>';
+     $links['support'] = '<a href="#">' . __( 'Doc', 'propfirm-comparison' ) . '</a>';
+     // if( class_exists( 'Fyfx_Payment' ) ) {
+     //  $links['upgrade'] = '<a href="https://fundyourfx.com">' . __( 'Upgrade', 'propfirm-comparison' ) . '</a>';
+     // }
+     return $links;
+}
+add_filter( 'plugin_action_links_propfirm-comparison/propfirm-comparison.php', 'filter_action_propfirm_comparison_links', 10, 1 );
 
 /**
  * Begins execution of the plugin.
