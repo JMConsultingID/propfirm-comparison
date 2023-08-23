@@ -60,7 +60,7 @@
                     listItem.classList.add('col-md-6', 'col-sm-6', 'mb-4');
                     listItem.innerHTML = `
                         <div class="card position-relative">
-                        <a href="#!" data-propfirm-id="${data.post_id}" style="color: #cecece;" class="remove-compare position-absolute top-0 end-0 text-reset"><i class="fas fa-trash-alt"></i></a>
+                        <button type="button" data-propfirm-id="${data.post_id}" class="remove-compare position-absolute top-0 end-0 text-reset"><i class="fas fa-trash-alt"></i></button>
                         <img src="${data.post_thumbnail_url}" class="card-img-top" alt="${data.post_title}">
                         </div>
                     `;
