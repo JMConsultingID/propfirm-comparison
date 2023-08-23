@@ -57,13 +57,15 @@
                 .then(data => {
                     // Create and append the card
                     const listItem = document.createElement('div');
-                    listItem.classList.add('card', 'col-md-6', 'col-sm-6', 'mb-4', 'p-4');
+                    listItem.classList.add('col-md-6', 'col-sm-6', 'mb-4');
                     listItem.innerHTML = `
+                        <div class="card">
                         <img src="${data.post_thumbnail_url}" class="card-img-top" alt="${data.post_title}">
                         <div class="card-body">
                             <div class="d-grid gap-2">
                                 <button class="remove-compare btn btn-danger" data-propfirm-id="${data.post_id}">Remove</button>
                             </div>
+                        </div>
                         </div>
                     `;
                     compareList.appendChild(listItem);
