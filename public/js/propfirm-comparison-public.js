@@ -60,7 +60,7 @@
                     listItem.classList.add('col-md-6', 'col-sm-6', 'mb-4');
                     listItem.innerHTML = `
                         <div class="card position-relative">
-                        <button type="button" data-propfirm-id="${data.post_id}" class="remove-compare position-absolute top-0 end-0 text-reset" style="background: transparent">
+                        <button type="button" data-propfirm-id="${data.post_id}" class="remove-compare position-absolute top-0 end-0 text-reset" style="background: transparent;border: none;">
                             <i class="fas fa-trash-alt" style="color: #1e1e1e"></i>
                         </button>
                         <img src="${data.post_thumbnail_url}" class="card-img-top" alt="${data.post_title}">
