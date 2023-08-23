@@ -57,7 +57,7 @@
                 .then(data => {
                     // Create and append the card
                     const listItem = document.createElement('div');
-                    listItem.classList.add('col-md-6', 'col-sm-6', 'mb-4');
+                    listItem.classList.add('col-md-6', 'col-sm-6', 'col-xs-6', 'mb-4');
                     listItem.innerHTML = `
                         <div class="card position-relative">
                         <button type="button" data-propfirm-id="${data.post_id}" class="remove-compare position-absolute top-0 end-0 text-reset" style="background: transparent;border: none;padding: 10px;z-index: 10;">
