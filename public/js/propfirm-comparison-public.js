@@ -61,6 +61,8 @@
                     listItem.innerHTML = `
                         <div class="card position-relative">
                         <button data-propfirm-id="${data.post_id}" type="button" class="remove-compare btn-close position-absolute top-0 end-0 text-reset" aria-label="Close"></button>
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
                         <img src="${data.post_thumbnail_url}" class="card-img-top" alt="${data.post_title}">
                         </div>
                     `;
