@@ -57,7 +57,7 @@
                 .then(data => {
                     // Create and append the card
                     const listItem = document.createElement('div');
-                    listItem.classList.add('card', 'col-md-6', 'col-sm-6', 'mb-4');
+                    listItem.classList.add('card', 'col-md-6', 'col-sm-6', 'mb-4'. 'p-4');
                     listItem.innerHTML = `
                         <img src="${data.post_thumbnail_url}" class="card-img-top" alt="${data.post_title}">
                         <div class="card-body">
