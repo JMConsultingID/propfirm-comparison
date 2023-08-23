@@ -53,7 +53,7 @@ function propfirm_comparison_frontend_stylesheets() {
     wp_register_style( 'propfirm-comparison-widget-bootstrap-style', plugins_url( '../public/css/bootstrap-grid.min.css', __FILE__ ) );
     wp_enqueue_style( 'propfirm-comparison-widget-bootstrap-style' );
 }
-add_action( 'elementor/frontend/before_enqueue_styles', 'propfirm_comparison_frontend_stylesheets' );
+//add_action( 'elementor/frontend/before_enqueue_styles', 'propfirm_comparison_frontend_stylesheets' );
 
 //function propfirm_comparison_frontend_scripts() {
     //wp_register_script( 'propfirm-comparison-widget-bootstrap-script', plugins_url( '../public/js/bootstrap.bundle.min.js', __FILE__ ) );
