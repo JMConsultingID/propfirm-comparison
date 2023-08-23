@@ -59,7 +59,8 @@
                     const listItem = document.createElement('div');
                     listItem.classList.add('col-md-6', 'col-sm-6', 'mb-4');
                     listItem.innerHTML = `
-                        <div class="card">
+                        <div class="card position-relative">
+                        <button type="button" class="btn-close position-absolute top-0 end-0 text-reset" aria-label="Close"></button>
                         <img src="${data.post_thumbnail_url}" class="card-img-top" alt="${data.post_title}">
                         <div class="card-body">
                             <div class="d-grid gap-2">
