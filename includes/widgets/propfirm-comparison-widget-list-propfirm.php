@@ -117,7 +117,8 @@ class Elementor_PropfirmComparison_Widget_listPropfirm extends \Elementor\Widget
 						  <div class="card-body">
 						    <h5 class="card-title"><?php the_title(); ?></h5>
 						    <p class="card-text"><?php echo $values; ?></p>
-						    <p>
+						    <p><?php echo do_shortcode( '[alike_link]' ); ?></p>
+						    <p>						    	
 						    <?php echo '<button class="btn btn-primary compare-button" data-propfirm-id="' . get_the_ID() . '" data-propfirm-title="' . get_the_title() . '" data-image-url="' . $featured_thumb_image_url . '" data-propfirm-slug="'.$post_slug.'" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Compare</button>'; ?>
 							</p>
 						  </div>
