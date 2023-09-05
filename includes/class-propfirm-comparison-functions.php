@@ -2,8 +2,6 @@
 if ( function_exists( 'wp_session_start' ) ) {
     wp_session_start();
 }
-session_start();
-
 // Add plugin settings page
 function propfirm_comparison_settings_page() {
     add_submenu_page(
